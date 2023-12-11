@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Ideal Trends - Princípios de Gestão</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4285f4;
+            padding: 10px;
+            color: white;
+        }
+        h1, h2 {
+            color: #fff;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 60%;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+        }
+        .card {
+            border: 1px solid #ddd;
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GRUPO IDEAL TRENDS</h1>
+        <h2>Princípios de Gestão</h2>
+    </header>
+
+    <input type="text" id="searchInput" placeholder="Adivinhe o princípio">
+    <button onclick="buscarPrincipio()">Buscar</button>
+
+    <div id="resultados"></div>
+
+    <script>
+        const principios = [
+            {
+                numero: 1,
+                nome: "SONHAR GRANDE",
+                descricao: "Somos movidos por um sonho grandioso e desafiador: Sermos os melhores e mais lucrativos nos setores que atuamos."
+            },
+            {
+                numero: 2,
+                nome: "MERITOCRACIA",
+                descricao: "Pessoas excelentes, livres para crescer no ritmo de seu talento e recompensadas adequadamente, são nosso ativo mais valioso."
+            },
+            {
+                numero: 3,
+                nome: "FORMAR LÍDERES",
+                descricao: "Devemos selecionar indivíduos que possam ser melhores do que nós. Seremos avaliados pela qualidade de nossas equipes."
+            },
+            {
+                numero: 4,
+                nome: "SER EXEMPLO",
+                descricao: "A liderança pelo exemplo pessoal é o melhor guia para nossa cultura. Fazemos o que dizemos."
+            },
+            {
+                numero: 5,
+                nome: "RESULTADOS",
+                descricao: "Resultados são a força motriz da empresa. O foco nos resultados nos permite concentrar tempo e energia no que é essencial."
+            },
+            {
+                numero: 6,
+                nome: "AGIR COMO DONO",
+                descricao: "Somos todos donos da empresa. E um dono assume a responsabilidade pelos resultados pessoalmente."
+            },
+            {
+                numero: 7,
+                nome: "SIMPLICIDADE E FRANQUEZA",
+                descricao: "Acreditamos que bom senso e simplicidade são melhores que complexidade e sofisticação."
+            },
+            {
+                numero: 8,
+                nome: "EMPRESA ENXUTA",
+                descricao: "Gerenciamos nossos custos rigorosamente, a fim de liberar recursos que ajudarão a aumentar o faturamento."
+            },
+            {
+                numero: 9,
+                nome: "TRABALHO DURO",
+                descricao: "Nunca estamos plenamente satisfeitos com nossos resultados. É essa recusa em se acomodar à situação atual que nos garante vantagem competitiva duradoura."
+            },
+            {
+                numero: 10,
+                nome: "INTEGRIDADE",
+                descricao: "Não tomamos atalhos. Integridade, trabalho duro e consistência são o cimento que pavimenta nossa empresa."
+            }
+        ];
+    
+        function buscarPrincipio() {
+            const inputText = document.getElementById('searchInput').value.toUpperCase();
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = '';
+    
+            principios.forEach((principio) => {
+                if (
+                    principio.nome.toUpperCase().includes(inputText) ||
+                    principio.numero.toString() === inputText
+                ) {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `<strong>Princípio ${principio.numero}:</strong> ${principio.nome}<br>${principio.descricao}`;
+                    resultadosDiv.appendChild(card);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
